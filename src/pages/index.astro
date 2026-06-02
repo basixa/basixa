@@ -5,117 +5,123 @@ const products = [
   {
     name: "EasyAIAgents",
     tagline: "Autonomous Logic Engines",
-    desc: "Next-gen AI agents designed for complex reasoning and workflow automation. Built for scale.",
+    desc: "Next-gen AI agents designed for complex reasoning and workflow automation. Built for enterprise scale.",
     img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200"
   },
   {
     name: "Lumina",
-    tagline: "Visual Synthesis Suite",
-    desc: "A high-performance video engine that redefines mobile creativity with professional-grade processing.",
-    img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200"
+    tagline: "Professional Video Engine",
+    desc: "A high-performance video suite for Android. Re-engineering the mobile creative stack with low-latency synthesis.",
+    img: "https://images.unsplash.com/photo-1536240478700-b86734914a31?q=80&w=1200"
   },
   {
     name: "Max OS",
-    tagline: "The Future of OS",
-    desc: "An experimental platform focused on performance, extreme compatibility, and deep AI integration.",
-    img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200"
+    tagline: "Performance Computing",
+    desc: "An experimental OS built for extreme efficiency and native AI compatibility. Computing redefined.",
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200"
   }
+];
+
+const socials = [
+  { name: 'X.COM', url: 'https://x.com/basixa' },
+  { name: 'GITHUB', url: 'https://github.com/basixa' },
+  { name: 'INSTAGRAM', url: 'https://instagram.com/basixa' }
 ];
 ---
 
-<Layout title="BasiXa | Building the Future">
+<Layout title="BasiXa | Building the Future of Software">
 	<!-- Navbar -->
 	<nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/40 backdrop-blur-xl">
 		<div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
 			<div class="text-xl font-bold tracking-tighter uppercase">BasiXa</div>
-			<div class="flex gap-8 items-center text-xs font-bold uppercase tracking-widest text-neutral-400">
+			<div class="flex gap-8 items-center text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400">
 				<a href="#products" class="hover:text-white transition">Products</a>
 				<a href="#ceo" class="hover:text-white transition">Leadership</a>
-				<a href="mailto:basixaofficial@gmail.com" class="text-white border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition duration-500">Inquire</a>
+				<a href="mailto:basixaofficial@gmail.com" class="text-white border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition duration-500">Contact</a>
 			</div>
 		</div>
 	</nav>
 
 	<main>
-		<!-- Hero Section -->
-		<section class="pt-48 pb-32 px-6 max-w-7xl mx-auto">
+		<!-- Hero -->
+		<section class="pt-48 pb-32 px-6 max-w-7xl mx-auto text-center md:text-left">
 			<div class="max-w-4xl">
-				<span class="text-indigo-500 font-bold uppercase tracking-[0.3em] text-[10px] mb-6 block">Technology Research Lab</span>
 				<h1 class="text-6xl md:text-8xl font-bold tracking-tighter leading-[0.95] mb-12">
-					Building the next generation of <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent italic">intelligent systems.</span>
+					Building the next generation of <span class="text-neutral-500 italic">intelligent systems.</span>
 				</h1>
 				<p class="text-xl md:text-2xl text-neutral-400 leading-relaxed max-w-2xl font-light">
-					BasiXa is an independent software lab developing high-performance AI tools and experimental platforms.
+					BasiXa is an independent software lab developing high-performance AI tools and experimental platforms for the creative age.
 				</p>
 			</div>
 		</section>
 
-		<!-- Product Section -->
+		<!-- Products Section -->
 		<section id="products" class="py-32 px-6 max-w-7xl mx-auto border-t border-white/5">
-			<div class="grid gap-32">
+			<div class="grid gap-40">
 				{products.map((p, index) => (
-					<div class={`flex flex-col md:flex-row items-center gap-16 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+					<div class={`flex flex-col md:flex-row items-center gap-20 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
 						<div class="md:w-1/2">
-							<h3 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">{p.name}</h3>
-							<p class="text-indigo-400 font-bold uppercase tracking-widest text-xs mb-4">{p.tagline}</p>
+							<h3 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight leading-tight">{p.name}</h3>
+							<p class="text-indigo-400 font-bold uppercase tracking-widest text-[10px] mb-4">{p.tagline}</p>
 							<p class="text-neutral-400 text-lg leading-relaxed mb-8">{p.desc}</p>
-							<div class="h-1 w-20 bg-indigo-500/50"></div>
+							<div class="h-[1px] w-24 bg-white/10"></div>
 						</div>
-						<div class="md:w-1/2 rounded-[32px] overflow-hidden border border-white/10 group shadow-2xl shadow-indigo-500/5">
-							<img src={p.img} alt={p.name} class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-700" />
+						<div class="md:w-1/2 rounded-[40px] overflow-hidden border border-white/10 group bg-neutral-900 shadow-2xl">
+							<img src={p.img} alt={p.name} class="w-full h-[450px] object-cover group-hover:scale-105 transition duration-1000" />
 						</div>
 					</div>
 				))}
 			</div>
 		</section>
 
-		<!-- CEO Section (Custom Image) -->
-		<section id="ceo" class="py-32 px-6 max-w-7xl mx-auto bg-white/[0.02] border-y border-white/5">
-			<div class="flex flex-col md:flex-row items-center gap-20">
-				<div class="md:w-2/5 relative">
-					<div class="absolute -inset-4 bg-indigo-500/20 blur-2xl rounded-full -z-10"></div>
-					<div class="rounded-[40px] overflow-hidden border border-white/10 rotate-2 hover:rotate-0 transition duration-500 shadow-2xl">
-						<!-- This uses the photo you provided -->
-						<img src="/ceo.jpg" alt="Abdul Basit HS" class="w-full aspect-[3/4] object-cover" />
+		<!-- CEO Section -->
+		<section id="ceo" class="py-40 px-6 max-w-7xl mx-auto border-t border-white/5">
+			<div class="flex flex-col md:flex-row items-center gap-24">
+				<div class="md:w-1/3">
+					<div class="rounded-[40px] overflow-hidden border border-white/10 shadow-2xl rotate-1 hover:rotate-0 transition duration-700">
+						<!-- Image Path: public/ceo.jpg -->
+						<img src="/ceo.jpg" alt="Abdul Basit HS" class="w-full aspect-[4/5] object-cover" />
 					</div>
 				</div>
-				<div class="md:w-3/5">
-					<span class="text-xs font-mono text-neutral-500 uppercase tracking-widest mb-6 block">Visionary Leadership</span>
-					<h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-8">Abdul Basit HS</h2>
-					<p class="text-2xl text-neutral-300 leading-relaxed font-light italic mb-8">
-						"Our focus at BasiXa is to remove the barriers between human intuition and technical execution. We are building for the creative age."
+				<div class="md:w-2/3">
+					<span class="text-[10px] font-bold text-neutral-500 uppercase tracking-[0.3em] mb-6 block">Founder & CEO</span>
+					<h2 class="text-6xl font-bold tracking-tighter mb-8">Abdul Basit HS</h2>
+					<p class="text-2xl text-neutral-300 leading-relaxed font-light italic mb-10">
+						"At BasiXa, we are committed to building technology that simplifies complexity and empowers human innovation at a global scale."
 					</p>
-					<div class="flex gap-12 pt-8 border-t border-white/10">
+					<div class="flex gap-12 pt-10 border-t border-white/5">
 						<div>
-							<p class="text-sm font-bold uppercase tracking-widest text-indigo-400">Founder & CEO</p>
-							<p class="text-xs text-neutral-500">BasiXa Technologies</p>
+							<p class="text-xs font-bold uppercase tracking-widest text-indigo-400">Leadership</p>
+							<p class="text-[10px] text-neutral-600 uppercase tracking-widest mt-1">BasiXa Technologies</p>
 						</div>
-						<div class="flex gap-4">
-							<a href="https://x.com/basixa" class="text-xs font-bold border border-white/10 px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Twitter</a>
-							<a href="https://github.com/basixa" class="text-xs font-bold border border-white/10 px-4 py-2 rounded-full hover:bg-white hover:text-black transition">GitHub</a>
+						<div class="flex gap-6">
+							<a href="https://x.com/basixa" target="_blank" class="text-[10px] font-bold border border-white/10 px-6 py-2 rounded-full hover:bg-white hover:text-black transition">TWITTER</a>
+							<a href="https://github.com/basixa" target="_blank" class="text-[10px] font-bold border border-white/10 px-6 py-2 rounded-full hover:bg-white hover:text-black transition">GITHUB</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Final CTA -->
+		<!-- Call to Action -->
 		<section class="py-40 text-center px-6">
-			<h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-12">Innovate without limits.</h2>
-			<a href="mailto:basixaofficial@gmail.com" class="px-12 py-5 bg-indigo-600 text-white rounded-full font-bold text-xl hover:bg-indigo-500 transition shadow-xl shadow-indigo-500/20">
-				Join the Ecosystem
+			<h2 class="text-5xl md:text-8xl font-bold tracking-tighter mb-16 opacity-20 hover:opacity-100 transition duration-1000">Innovate. Create. Build.</h2>
+			<a href="mailto:basixaofficial@gmail.com" class="px-16 py-6 bg-white text-black rounded-full font-black text-sm uppercase tracking-widest hover:bg-indigo-600 hover:text-white transition duration-500">
+				Get in touch
 			</a>
 		</section>
 	</main>
 
-	<!-- Footer -->
-	<footer class="py-20 border-t border-white/5 px-6">
-		<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-600">
-			<p>© 2024 BASIXA LABS — ALL RIGHTS RESERVED</p>
-			<div class="flex gap-12">
-				<a href="https://x.com/basixa" class="hover:text-white transition">X.COM</a>
-				<a href="https://github.com/basixa" class="hover:text-white transition">GITHUB</a>
-				<a href="https://instagram.com/basixa" class="hover:text-white transition">INSTAGRAM</a>
+	<!-- Best Version Footer -->
+	<footer class="py-20 border-t border-white/5 px-6 bg-[#030303]">
+		<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+			<div class="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral-600">
+				© 2026 BASIXA LABS — ALL RIGHTS RESERVED
+			</div>
+			<div class="flex gap-12 text-[10px] font-bold uppercase tracking-[0.3em] text-neutral-500">
+				{socials.map(s => (
+					<a href={s.url} target="_blank" class="hover:text-white transition">{s.name}</a>
+				))}
 			</div>
 		</div>
 	</footer>
