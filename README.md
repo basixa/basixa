@@ -1,9 +1,5 @@
 # BasiXa
 
-<p align="center">
-  <img src="../assets/logo.png" width="180" alt="BasiXa Logo">
-</p>
-
 ## Building the Future of Software
 
 BasiXa is an independent technology company focused on artificial intelligence, creative tools, productivity software, and next-generation computing platforms.
