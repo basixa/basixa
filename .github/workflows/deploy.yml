@@ -18,4 +18,4 @@ jobs:
       - name: Install, build, and upload docs
         uses: withastro/action@v2
         with:
-          package-manager: npm # This tells GitHub to use npm
+          package-manager: npm # Ye line hona bahut zaruri hai
