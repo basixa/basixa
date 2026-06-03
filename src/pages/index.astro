@@ -378,19 +378,30 @@ const socials = [
     position: sticky;
     top: 88px;
   }
+  .founder-photo-wrap {
+    margin-bottom: 20px;
+  }
+  .founder-photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 14px;
+    object-fit: cover;
+    object-position: center top;
+    border: 1px solid var(--border);
+    display: block;
+  }
   .founder-initials {
-    width: 56px;
-    height: 56px;
+    width: 72px;
+    height: 72px;
     background: var(--text);
     color: var(--bg);
-    border-radius: 12px;
+    border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: -0.02em;
-    margin-bottom: 20px;
   }
   .founder-name-big {
     font-size: 1.05rem;
@@ -597,7 +608,15 @@ const socials = [
       </div>
       <div>
         <div class="founder-box reveal reveal-d1">
-          <div class="founder-initials">AB</div>
+          <div class="founder-photo-wrap">
+            <img
+              src="https://basixa.github.io/public/ceo.jpg"
+              alt="Abdul Basit HS — Founder & CEO"
+              class="founder-photo"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+            />
+            <div class="founder-initials" style="display:none;">AB</div>
+          </div>
           <div class="founder-name-big">Abdul Basit HS</div>
           <div class="founder-title">Founder & CEO</div>
           <div class="founder-divider"></div>
