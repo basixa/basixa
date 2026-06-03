@@ -1,6 +1,19 @@
 ---
-interface Props { title: string; }
-const { title } = Astro.props;
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const {
+  title = "BasiXa — Building the Future of Software",
+  description = "BasiXa is an independent technology company building AI agents, creative tools, and next-generation computing platforms. Founded by Abdul Basit HS.",
+  image = "https://basixa.github.io/og-image.png",
+  canonical = "https://basixa.github.io",
+} = Astro.props;
+
+const fullTitle = title.includes("BasiXa") ? title : `${title} — BasiXa`;
 ---
 <!doctype html>
 <html lang="en" data-theme="light">
@@ -8,11 +21,61 @@ const { title } = Astro.props;
 <meta name="google-site-verification" content="2uUBqxyUbpa9ynYxB2gWfLGI2mrSo5Cs0NBIz208Evo" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
+
+    <!-- Primary SEO -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Abdul Basit HS" />
+    <meta name="keywords" content="BasiXa, AI agents, EasyAIAgents, Lumina video editor, Max OS, Abdul Basit HS, technology company, software" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="BasiXa" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@basixa" />
+    <meta name="twitter:creator" content="@basixa" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23111'/><text x='16' y='22' font-size='18' text-anchor='middle' font-family='Georgia,serif' fill='%23111'>B</text></svg>" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='white'/><text x='16' y='22' font-size='18' text-anchor='middle' font-family='Georgia,serif' fill='%23111'>B</text></svg>" />
 
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "BasiXa",
+      "url": "https://basixa.github.io",
+      "logo": "https://basixa.github.io/ceo.jpg",
+      "description": "Independent technology company building AI agents, creative tools, and next-generation computing platforms.",
+      "email": "basixaofficial@gmail.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Abdul Basit HS",
+        "jobTitle": "Founder & CEO"
+      },
+      "sameAs": [
+        "https://x.com/basixa",
+        "https://github.com/basixa",
+        "https://instagram.com/basixa"
+      ]
+    }
+    </script>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -59,9 +122,7 @@ const { title } = Astro.props;
       }
 
       ::selection { background: var(--accent); color: #fff; }
-
       a { color: inherit; text-decoration: none; }
-
       ::-webkit-scrollbar { width: 6px; }
       ::-webkit-scrollbar-track { background: var(--bg); }
       ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
@@ -70,7 +131,6 @@ const { title } = Astro.props;
   <body>
     <slot />
     <script is:inline>
-      // Persist theme
       const saved = localStorage.getItem('theme');
       if (saved) document.documentElement.setAttribute('data-theme', saved);
     </script>
